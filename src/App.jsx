@@ -1,16 +1,19 @@
 const App = () => {
-  const course = 'Information Technology'
-  const parts = [
-    { name: 'Applications Development and Emerging Technologies', exercises: 3 },
-    { name: 'Data Analytics 1', exercises: 3 },
-    { name: 'Information Management 2', exercises: 3 }
-  ]
+  const course = {
+    name: 'Information Technology',
+    parts: [
+      { name: 'Applications Development and Emerging Technologies', exercises: 3 },
+      { name: 'Data Analytics 1', exercises: 3 },
+      { name: 'Information Management 2', exercises: 3 }
+    ]
+  }
 
   return (
     <div>
-      <Header course={course} />
-      <Content parts={parts} />
-      <Total parts={parts} />
+      <Header course={course.name} />
+      <Content parts={course.parts} />
+      <Total parts={course.parts} />
+      <Footer name="Frances Nicole P. Tolentino" courseCode="CSIT340" section="G6" />
     </div>
   )
 }
@@ -39,6 +42,10 @@ const Total = (props) => {
       Number of exercises {props.parts[0].exercises + props.parts[1].exercises + props.parts[2].exercises}
     </p>
   )
+}
+
+const Footer = (props) => {
+  return <footer>{props.name} - {props.courseCode} - {props.section}</footer>
 }
 
 export default App
